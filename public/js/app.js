@@ -22,19 +22,17 @@ weatherForm.addEventListener("submit", (e) => {
     messageTwo.textContent = "";
     messageThree.textContent = "";
 
-    fetch(`http://localhost:3000/weather?address=${location}`).then(
-        (response) => {
-            response.json().then((data) => {
-                if (data.error) {
-                    messageOne.textContent = data.error;
-                } else {
-                    messageOne.textContent = data.location;
-                    messageTwo.textContent = `Description: ${data.weatherDescription}`;
-                    messageThree.textContent = `Temperature: ${data.temperature} (feels like ${data.feelsLike})`;
-                }
-            });
-        }
-    );
+    fetch(`/weather?address=${location}`).then((response) => {
+        response.json().then((data) => {
+            if (data.error) {
+                messageOne.textContent = data.error;
+            } else {
+                messageOne.textContent = data.location;
+                messageTwo.textContent = `Description: ${data.weatherDescription}`;
+                messageThree.textContent = `Temperature: ${data.temperature} (feels like ${data.feelsLike})`;
+            }
+        });
+    });
 
     console.log(location);
 });
