@@ -29,7 +29,7 @@ weatherForm.addEventListener("submit", (e) => {
             } else {
                 messageOne.textContent = data.location;
                 messageTwo.textContent = `Description: ${data.weatherDescription}`;
-                messageThree.textContent = `Temperature: ${data.temperature} (feels like ${data.feelsLike})`;
+                messageThree.textContent = `Temperature: ${data.temperature}°C (feels like ${data.feelsLike}°C) with ${data.precipitation} mm of precipitation`;
             }
         });
     });
